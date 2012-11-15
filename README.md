@@ -1,13 +1,7 @@
 NavigationContentSlider
 =======================
 
-NavigationContentSlider is a small, lightweight class which allows you to have "tabbed" style content for your views. that you can switch between by swiping on the UINavigationBar, see:
-
-![iPhone Screenshot 1](http://i.imgur.com/GF942.png)
-![iPhone Screenshot 2](http://i.imgur.com/1hjAe.png)
-
-![iPad Screenshot 1](http://i.imgur.com/u1XiI.png)
-![iPad Screenshot 2](http://i.imgur.com/1RFxj.png)
+NavigationContentSlider is a small, lightweight class which allows you to have "tabbed" style content for your views. that you can switch between by swiping on the UINavigationBar, see the screenshots section below for a better representation of what I'm trying to say!
 
 
 How to Use
@@ -39,6 +33,15 @@ Return the UIView for the section at the index
 ### Styling
 
 You can style the NavigationContentSlider using the same methods you would to style a UINavigationBar (since iOS5, using ```[[UINavigationBar appearance] setTitleTextAttributes:...]```)
+
+
+Screenshots
+-----------
+![iPhone Screenshot 1](http://i.imgur.com/GF942.png) 
+![iPhone Screenshot 2](http://i.imgur.com/1hjAe.png)
+
+![iPad Screenshot 1](http://i.imgur.com/u1XiI.png)
+![iPad Screenshot 2](http://i.imgur.com/1RFxj.png)
 
 License
 -------
