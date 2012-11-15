@@ -24,8 +24,7 @@ Return the number of sections you wish to have
 
 Return the width of the title for each section. In the demo example, you'll see that I increase this for iPads (as it looks better)
 
-```- (NSString *)navigationContentSlider:(NavigationContentSlider *)navigationContentSlider 
-									titleForSectionAtIndex:(NSInteger)index```
+```- (NSString *)navigationContentSlider:(NavigationContentSlider *)navigationContentSlider titleForSectionAtIndex:(NSInteger)index```
 
 Return the title for the section index
 
