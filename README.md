@@ -37,7 +37,7 @@ You can style the NavigationContentSlider using the same methods you would to st
 
 Screenshots
 -----------
-![iPhone Screenshot 1](http://i.imgur.com/GF942.png) 
+![iPhone Screenshot 1](http://i.imgur.com/GF942.png)  
 ![iPhone Screenshot 2](http://i.imgur.com/1hjAe.png)
 
 ![iPad Screenshot 1](http://i.imgur.com/u1XiI.png)
