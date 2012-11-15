@@ -3,7 +3,7 @@ NavigationContentSlider
 
 NavigationContentSlider is a small, lightweight class which allows you to have "tabbed" style content for your views that you can switch between by swiping on the UINavigationBar (see the screenshots section below for a better representation of what I'm trying to say!).
 
-NavigationContentSlider uses ARC, and is compatible with all iOS mobile devices (iPhone, iPod, iPad, iPhone 5, iPad Mini). It can be used in both portrait and landscape mode.
+NavigationContentSlider uses ARC, and is compatible with all iOS mobile devices (iPhone, iPod, iPad, iPhone 5, iPad Mini) running iOS 5.0+ (it may well work on lower iOS versions, but I haven't tested this). It can be used in both portrait and landscape mode.
 
 Any view controller that uses this class **MUST** be part of a UINavigationController stack.
 
