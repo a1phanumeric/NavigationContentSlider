@@ -3,6 +3,8 @@ NavigationContentSlider
 
 NavigationContentSlider is a small, lightweight class which allows you to have "tabbed" style content for your views that you can switch between by swiping on the UINavigationBar (see the screenshots section below for a better representation of what I'm trying to say!).
 
+![NavigationContentSlider Example](http://i.imgur.com/uydZt.gif)
+
 How to Use
 ----------
 

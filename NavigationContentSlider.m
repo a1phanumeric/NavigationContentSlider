@@ -191,7 +191,6 @@
         height  = maxFrame.size.width;
         maxFrame.size.height = height;
         maxFrame.size.width = width;
-        
     }
     
     if(self.navigationController)
