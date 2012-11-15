@@ -35,7 +35,7 @@ Return the UIView for the section at the index
 
 ### Styling
 
-You can style the NavigationContentSlider using the same methods you would to style a UINavigationBar (since iOS5, using ```[[UINavigationBar appearance] setTitleTextAttributes:...]```)
+You can style the NavigationContentSlider using the same methods you would to style a UINavigationBar (since iOS5, using ```[[UINavigationBar appearance] setTitleTextAttributes:...]``` and ```[[UINavigationBar appearance] setBackgroundImage:...]``` etc...)
 
 
 Screenshots
