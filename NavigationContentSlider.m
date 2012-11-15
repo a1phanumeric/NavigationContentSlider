@@ -200,9 +200,6 @@
     if(self.tabBarController)
         maxFrame.size.height -= self.tabBarController.tabBar.frame.size.height;
     
-    
-    
-    NSLog(@"Max Frame: %@", NSStringFromCGRect(maxFrame));
     return maxFrame;
 }
 
