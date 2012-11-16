@@ -90,7 +90,7 @@
 
 #pragma mark - Private Methods
 
-- (void)initialiseNavigationContentSlider{B
+- (void)initialiseNavigationContentSlider{
     
     if(_isInitalised){
         [self scrollViewDidScroll:_titleBarScrollView];
