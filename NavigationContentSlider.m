@@ -7,7 +7,6 @@
 
 #import "NavigationContentSlider.h"
 
-
 // Mini subclas of UIView allows for UIScrollView events to occur
 // outside of it's frame (useful for paging when the width is
 // smaller than the required overall width)
@@ -202,7 +201,7 @@
     if(self.navigationController)
         maxFrame.size.height -= self.navigationController.navigationBar.frame.size.height;
     
-    if(self.tabBarController)
+    if(self.tabBarController && !self.tabBarController.tabBar.hidden)
         maxFrame.size.height -= self.tabBarController.tabBar.frame.size.height;
     
     return maxFrame;
