@@ -37,6 +37,8 @@
 
 @property (assign, nonatomic) CGFloat contentXOffsetScale;
 
+@property (assign, nonatomic) BOOL isInitalised;
+
 - (void)initialiseNavigationContentSlider;
 - (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index;
 
@@ -90,6 +92,8 @@
 #pragma mark - Private Methods
 
 - (void)initialiseNavigationContentSlider{
+    
+    if(_isInitalised) return;
     
     // Prepare iVars
     _totalSections              = [_dataSource numberOfSectionsInNavigationContentSlider:self];
@@ -155,6 +159,8 @@
     [_contentScrollView     setContentSize:CGSizeMake(i*viewSize.width, viewSize.height)];
     [self.navigationItem    setTitleView:_titleBarView];
     [self.view addSubview:_contentScrollView];
+    
+    _isInitalised = YES;
 }
 
 
