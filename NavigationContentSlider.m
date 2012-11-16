@@ -103,7 +103,7 @@
     _sectionTitleWidth          = [self.dataSource widthOfSectionTitlesInNavigationContentSlider:self];
     _sectionViews               = [[NSMutableArray alloc] initWithCapacity:_totalSections];
     CGSize viewSize             = [self maximumUsableFrame].size;
-    int padding                 = floor((viewSize.width - _sectionTitleWidth) / 2);
+    int padding                 = floor((viewSize.width - _sectionTitleWidth) / 2) - 5;
     int navControllerHeight     = self.navigationController.navigationBar.frame.size.height;
     _contentXOffsetScale        = viewSize.width / _sectionTitleWidth;
     
@@ -173,7 +173,7 @@
     [label setBackgroundColor:[UIColor clearColor]];
     [label setTextAlignment:NSTextAlignmentCenter];
     [label setText:[_dataSource navigationContentSlider:self titleForSectionAtIndex:index]];
-    
+
     if(_sectionTitleTextAttributes == nil){
         [label setTextColor:[UIColor whiteColor]];
         [label setFont:[UIFont boldSystemFontOfSize:20.0]];
