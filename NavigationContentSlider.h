@@ -22,8 +22,9 @@
 @interface NavigationContentSlider : UIViewController <UIScrollViewDelegate, NavigationContentSliderDataSource>
 
 @property (assign, nonatomic) id <NavigationContentSliderDataSource> dataSource;
+@property (assign, nonatomic) BOOL manualInit;
 
-
+- (void)initNavigationContentSlider;
 - (CGRect)maximumUsableFrame;
 
 @end

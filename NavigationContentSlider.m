@@ -38,7 +38,6 @@
 
 @property (assign, nonatomic) BOOL isInitalised;
 
-- (void)initialiseNavigationContentSlider;
 - (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index;
 
 @end
@@ -79,7 +78,8 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated{
-    [self initialiseNavigationContentSlider];
+    if(!_manualInit)    [self initNavigationContentSlider];
+    if(_isInitalised)   [self scrollViewDidScroll:_titleBarScrollView];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -90,7 +90,30 @@
 
 #pragma mark - Private Methods
 
-- (void)initialiseNavigationContentSlider{
+- (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(_sectionTitleWidth * index, 0, _sectionTitleWidth, 44.0)];
+    [label setBackgroundColor:[UIColor clearColor]];
+    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setText:[_dataSource navigationContentSlider:self titleForSectionAtIndex:index]];
+
+    if(_sectionTitleTextAttributes == nil){
+        [label setTextColor:[UIColor whiteColor]];
+        [label setFont:[UIFont boldSystemFontOfSize:20.0]];
+        [label setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.5]];
+    }else{
+        [label setTextColor:[_sectionTitleTextAttributes objectForKey:UITextAttributeTextColor]];
+        [label setFont:[_sectionTitleTextAttributes objectForKey:UITextAttributeFont]];
+        [label setShadowColor:[_sectionTitleTextAttributes objectForKey:UITextAttributeTextShadowColor]];
+        [label setShadowOffset:[[_sectionTitleTextAttributes objectForKey:UITextAttributeTextShadowOffset] CGSizeValue]];
+    }
+    
+    return label;
+}
+
+
+#pragma mark - Public Methods
+
+- (void)initNavigationContentSlider{
     
     if(_isInitalised){
         [self scrollViewDidScroll:_titleBarScrollView];
@@ -167,29 +190,6 @@
 }
 
 
-
-- (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index{
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(_sectionTitleWidth * index, 0, _sectionTitleWidth, 44.0)];
-    [label setBackgroundColor:[UIColor clearColor]];
-    [label setTextAlignment:NSTextAlignmentCenter];
-    [label setText:[_dataSource navigationContentSlider:self titleForSectionAtIndex:index]];
-
-    if(_sectionTitleTextAttributes == nil){
-        [label setTextColor:[UIColor whiteColor]];
-        [label setFont:[UIFont boldSystemFontOfSize:20.0]];
-        [label setShadowColor:[UIColor colorWithWhite:0.0 alpha:0.5]];
-    }else{
-        [label setTextColor:[_sectionTitleTextAttributes objectForKey:UITextAttributeTextColor]];
-        [label setFont:[_sectionTitleTextAttributes objectForKey:UITextAttributeFont]];
-        [label setShadowColor:[_sectionTitleTextAttributes objectForKey:UITextAttributeTextShadowColor]];
-        [label setShadowOffset:[[_sectionTitleTextAttributes objectForKey:UITextAttributeTextShadowOffset] CGSizeValue]];
-    }
-    
-    return label;
-}
-
-
-#pragma mark - Public Methods
 
 - (CGRect)maximumUsableFrame{
     CGRect maxFrame = [UIScreen mainScreen].applicationFrame;
