@@ -19,7 +19,7 @@
 
 @end
 
-@interface NavigationContentSlider : UIViewController <UIScrollViewDelegate, NavigationContentSliderDataSource>
+@interface NavigationContentSlider : UIViewController <UINavigationControllerDelegate, UIScrollViewDelegate>
 
 @property (assign, nonatomic) id <NavigationContentSliderDataSource> dataSource;
 @property (assign, nonatomic) BOOL manualInit;

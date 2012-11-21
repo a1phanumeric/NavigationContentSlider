@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import <QuartzCore/QuartzCore.h> // totally not needed, it's just to make the temp views look nicer.
 
-@interface RootViewController ()
+@interface RootViewController () <NavigationContentSliderDataSource>
 
 @property (strong, nonatomic) NSArray *sectionTitles;
 
@@ -27,6 +27,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.dataSource = self;
     _sectionTitles = [[NSArray alloc] initWithObjects:@"Page One", @"Page Two", @"Page Three", @"Page Four", @"Page Five", @"Page Six", @"Page Seven", @"Page Eight", nil];
 }
 

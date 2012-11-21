@@ -53,8 +53,6 @@
 - (void)initialise{
     if(self.navigationController == nil)
         [NSException raise:@"NavigationContentSlider" format:@"NavigationSlideViewController can only be used on view controllers that are part of a UINavigationController stack."];
-    
-    self.dataSource = self;
 }
 
 - (id)initWithCoder:(NSCoder *)aCoder{
@@ -75,6 +73,9 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
+    [self.navigationController setDelegate:self];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -217,22 +218,5 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
     int xOffset = scrollView.contentOffset.x;
     [_contentScrollView setContentOffset:CGPointMake(xOffset * _contentXOffsetScale, 0)];
-}
-
-
-#pragma mark - NavigationSlideViewControllerDataSource
-// Just setting defaults here, to suppress warnings. The subclass should implement
-// these data source methods.
-- (NSInteger)numberOfSectionsInNavigationContentSlider:(NavigationContentSlider *)navigationContentSlider{
-    return 0;
-}
-- (NSInteger)widthOfSectionTitlesInNavigationContentSlider:(NavigationContentSlider *)navigationContentSlider{
-    return 100;
-}
-- (NSString *)navigationContentSlider:(NavigationContentSlider *)navigationContentSlider titleForSectionAtIndex:(NSInteger)index{
-    return @"";
-}
-- (UIView *)navigationContentSlider:(NavigationContentSlider *)navigationContentSlider viewForSectionAtIndex:(NSInteger)index{
-    return [[UIView alloc] init];
 }
 @end
