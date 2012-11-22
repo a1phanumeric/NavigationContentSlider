@@ -36,8 +36,6 @@
 
 @property (assign, nonatomic) CGFloat contentXOffsetScale;
 
-@property (assign, nonatomic) BOOL isInitalised;
-
 - (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index;
 
 @end
@@ -182,9 +180,13 @@
         
     }
     
-    [_titleBarScrollView    setContentSize:CGSizeMake(i*_sectionTitleWidth, navControllerHeight)];
-    [_contentScrollView     setContentSize:CGSizeMake(i*viewSize.width, viewSize.height)];
-    [self.navigationItem    setTitleView:_titleBarView];
+    [_titleBarScrollView setContentSize:CGSizeMake(i*_sectionTitleWidth, navControllerHeight)];
+    [_contentScrollView setContentSize:CGSizeMake(i*viewSize.width, viewSize.height)];
+    
+    [_titleBarScrollView setContentOffset:CGPointMake(0, 0)];
+    [_contentScrollView setContentOffset:CGPointMake(0, 0)];
+    
+    [self.navigationItem setTitleView:_titleBarView];
     [self.view addSubview:_contentScrollView];
     
     _isInitalised = YES;
@@ -210,6 +212,15 @@
         maxFrame.size.height -= self.tabBarController.tabBar.frame.size.height;
     
     return maxFrame;
+}
+
+// Useful for replacing the content (for example, refreshing the data that controls
+// the view could mean there's more or less section titles). Call this method to remove
+// all the subviews, allowing you to perform a manual init on it.
+- (void)clearNavigationContentSlider{
+    _isInitalised = NO;
+    [_titleBarView removeFromSuperview];
+    [_contentScrollView removeFromSuperview];
 }
 
 

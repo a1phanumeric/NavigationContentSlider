@@ -23,8 +23,10 @@
 
 @property (assign, nonatomic) id <NavigationContentSliderDataSource> dataSource;
 @property (assign, nonatomic) BOOL manualInit;
+@property (assign, nonatomic) BOOL isInitalised;
 
 - (void)initNavigationContentSlider;
 - (CGRect)maximumUsableFrame;
+- (void)clearNavigationContentSlider;
 
 @end
