@@ -92,7 +92,7 @@
 - (UILabel *)titleLabelForSectionTitleAtIndex:(NSInteger)index{
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(_sectionTitleWidth * index, 0, _sectionTitleWidth, 44.0)];
     [label setBackgroundColor:[UIColor clearColor]];
-    [label setTextAlignment:NSTextAlignmentCenter];
+    [label setTextAlignment:UITextAlignmentCenter];
     [label setText:[_dataSource navigationContentSlider:self titleForSectionAtIndex:index]];
 
     if(_sectionTitleTextAttributes == nil){
