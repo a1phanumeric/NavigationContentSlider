@@ -223,6 +223,13 @@
     [_contentScrollView removeFromSuperview];
 }
 
+- (void)setCurrentSlideIndex:(NSInteger)currentSlideIndex animated:(BOOL)animated{
+    NSInteger xOffset = currentSlideIndex * _sectionTitleWidth;
+    
+    [_titleBarScrollView setContentOffset:CGPointMake(xOffset, 0) animated:animated];
+    [_contentScrollView setContentOffset:CGPointMake(xOffset * _contentXOffsetScale, 0) animated:animated];
+}
+
 
 
 #pragma mark - UIScrollViewDelegate

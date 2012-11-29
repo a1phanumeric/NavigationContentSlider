@@ -28,5 +28,6 @@
 - (void)initNavigationContentSlider;
 - (CGRect)maximumUsableFrame;
 - (void)clearNavigationContentSlider;
+- (void)setCurrentSlideIndex:(NSInteger)currentSlideIndex animated:(BOOL)animated;
 
 @end
