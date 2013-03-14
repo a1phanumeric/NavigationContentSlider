@@ -186,13 +186,29 @@
     [_titleBarScrollView setContentOffset:CGPointMake(0, 0)];
     [_contentScrollView setContentOffset:CGPointMake(0, 0)];
     
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+    tapGesture.numberOfTapsRequired = 1;
+    [_titleBarView addGestureRecognizer:tapGesture];
+    
     [self.navigationItem setTitleView:_titleBarView];
     [self.view addSubview:_contentScrollView];
     
     _isInitalised = YES;
 }
 
-
+- (void)handleTapGesture:(UITapGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateRecognized) {
+        CGPoint location = [gestureRecognizer locationInView:gestureRecognizer.view];
+        
+        float startPos = (self.view.frame.size.width / 2) - (_sectionTitleWidth / 2); // indent from left
+        float contentOffset = _titleBarScrollView.contentOffset.x; // content offset
+        
+        float actualXPos = location.x - startPos + contentOffset;
+        int tabIndex = (actualXPos / _sectionTitleWidth);
+        
+        [self setCurrentSlideIndex:tabIndex animated:YES];
+    }
+}
 
 - (CGRect)maximumUsableFrame{
     CGRect maxFrame = [UIScreen mainScreen].applicationFrame;
